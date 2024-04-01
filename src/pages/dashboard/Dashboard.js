@@ -13,9 +13,8 @@ import {
 // styles
 import useStyles from './styles';
 import no_img_thumb from '../../assests/images/No_Image_Available.jpg';
-import Widget from '../../components/Widget';
-import PageTitle from '../../components/PageTitle';
-import { Typography } from '../../components/Wrappers';
+import Widget from '../../components/Widget/Widget';
+import { Typography } from '../../components/Wrappers/Wrappers';
 import BigStat from './components/BigStat/BigStat';
 import AutoGrid from '../NewsFeed/NewsFeed';
 import { fetchNews } from '../../redux-store/NewsApiOrg/actions';
@@ -55,7 +54,7 @@ export default function Dashboard(props) {
 
   return (
     <div className={classes.container}>
-      <PageTitle title='News Point' />
+      <Typography variant='h2'style={{marginTop:"20px", marginBottom:"20px"}}>News Point</Typography>
       <Grid container spacing={4}>
         <Grid item lg={8} md={8} sm={6} xs={12}>
           <Box
