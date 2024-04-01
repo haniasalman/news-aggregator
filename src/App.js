@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'; // Import React
+import Navbar from '../src/components/Header/Navbar';
+import Dashboard from './pages/dashboard/Dashboard';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import SearchResultsList from './pages/SearchResultsList/SearchResultsList';
+
 
 function App() {
+  const [searchQuery, setSearchQuery] = useState('');
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar setSearchQuery={setSearchQuery} />
+      <Switch>
+        <Route exact path='/'>
+          <Dashboard searchQuery={searchQuery} />
+        </Route>
+        <Route path='/search'>
+          <SearchResultsList searchQuery={searchQuery} />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
